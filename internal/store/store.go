@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/example/setupx/internal/profile"
-	"github.com/example/setupx/internal/util"
+	"github.com/example/switcheroo/internal/profile"
+	"github.com/example/switcheroo/internal/util"
 )
 
 func LoadRegistry() (profile.Registry, error) {

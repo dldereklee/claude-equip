@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/example/setupx/internal/ui"
+	"github.com/example/switcheroo/internal/ui"
 )
 
 func RunInteractive() error {
 	for {
-		fmt.Println("\nsetupx interactive")
+		fmt.Println("\nswitcheroo interactive")
 		fmt.Println("  1) import repo")
 		fmt.Println("  2) list profiles")
 		fmt.Println("  3) use profile")

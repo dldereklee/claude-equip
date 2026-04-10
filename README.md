@@ -1,6 +1,6 @@
-# setupx
+# switcheroo
 
-`setupx` is a lightweight Go CLI for switching Claude Code and Codex configuration profiles.
+`switcheroo` is a lightweight Go CLI for switching Claude Code and Codex configuration profiles.
 
 ## Current features (MVP)
 
@@ -56,9 +56,9 @@ profiles/
 ## Commands
 
 ```bash
-setupx import <git-url>
-setupx list
-setupx use [--scope local|global] [--force] <profile-id>
+switcheroo import <git-url>
+switcheroo list
+switcheroo use [--scope local|global] [--force] <profile-id>
 ```
 
-Run `setupx` with no arguments to open interactive mode.
+Run `switcheroo` with no arguments to open interactive mode.

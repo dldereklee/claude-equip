@@ -1,3 +1,3 @@
-module github.com/example/setupx
+module github.com/example/switcheroo
 
 go 1.22

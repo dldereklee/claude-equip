@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/example/setupx/internal/allowlist"
-	"github.com/example/setupx/internal/profile"
-	"github.com/example/setupx/internal/store"
-	"github.com/example/setupx/internal/ui"
-	"github.com/example/setupx/internal/util"
+	"github.com/example/switcheroo/internal/allowlist"
+	"github.com/example/switcheroo/internal/profile"
+	"github.com/example/switcheroo/internal/store"
+	"github.com/example/switcheroo/internal/ui"
+	"github.com/example/switcheroo/internal/util"
 )
 
 type applyItem struct {

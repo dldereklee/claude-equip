@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/example/setupx/internal/util"
+	"github.com/example/switcheroo/internal/util"
 )
 
 func Sync(url string) (string, string, error) {

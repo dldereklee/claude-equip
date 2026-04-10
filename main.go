@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/example/setupx/internal/app"
+	"github.com/example/switcheroo/internal/app"
 )
 
 func main() {
@@ -25,7 +25,7 @@ func run(args []string) error {
 	switch args[0] {
 	case "import":
 		if len(args) < 2 {
-			return errors.New("usage: setupx import <git-url>")
+			return errors.New("usage: switcheroo import <git-url>")
 		}
 		return app.ImportRepo(args[1])
 	case "list":
@@ -39,7 +39,7 @@ func run(args []string) error {
 		}
 		rest := fs.Args()
 		if len(rest) < 1 {
-			return errors.New("usage: setupx use [--scope local|global] [--force] <profile-id>")
+			return errors.New("usage: switcheroo use [--scope local|global] [--force] <profile-id>")
 		}
 		if *scope != "" {
 			s := strings.ToLower(*scope)
@@ -58,7 +58,7 @@ func run(args []string) error {
 }
 
 func printHelp() {
-	fmt.Println(`setupx - switch Claude Code/Codex setups
+	fmt.Println(`switcheroo - switch Claude Code/Codex setups
 
 Commands:
   import <git-url>                           Import profiles from a git repository

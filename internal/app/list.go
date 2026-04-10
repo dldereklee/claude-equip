@@ -3,7 +3,7 @@ package app
 import (
 	"fmt"
 
-	"github.com/example/setupx/internal/store"
+	"github.com/example/switcheroo/internal/store"
 )
 
 func ListProfiles() error {
