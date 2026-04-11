@@ -10,6 +10,7 @@
 - Copy + backup apply strategy.
 - Conflict detection (abort unless `--force`).
 - Allowlist enforcement with explicit ignored-file reporting.
+- Path-safety checks that block traversal/escape paths during apply.
 - Basic interactive mode.
 
 ## Profile repository format

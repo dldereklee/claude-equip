@@ -1,6 +1,9 @@
 package allowlist
 
-import "strings"
+import (
+	"path"
+	"strings"
+)
 
 func Allowed(tool, scope, target string) bool {
 	t := clean(target)
@@ -25,7 +28,7 @@ func Allowed(tool, scope, target string) bool {
 
 func clean(s string) string {
 	s = strings.ReplaceAll(s, "\\", "/")
-	s = strings.TrimPrefix(s, "./")
+	s = path.Clean("/" + s)
 	s = strings.TrimPrefix(s, "/")
-	return strings.ToLower(s)
+	return strings.ToLower(strings.TrimPrefix(s, "./"))
 }

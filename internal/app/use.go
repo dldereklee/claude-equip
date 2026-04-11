@@ -50,8 +50,16 @@ func UseProfile(profileID, scope string, force bool) error {
 			ignored = append(ignored, f.Target)
 			continue
 		}
-		src := filepath.Join(manifestDir, filepath.FromSlash(f.Source))
-		dst := filepath.Join(root, filepath.FromSlash(f.Target))
+		src, err := safeJoinUnderRoot(manifestDir, f.Source)
+		if err != nil {
+			ignored = append(ignored, f.Target+" (unsafe source path)")
+			continue
+		}
+		dst, err := safeJoinUnderRoot(root, f.Target)
+		if err != nil {
+			ignored = append(ignored, f.Target+" (unsafe target path)")
+			continue
+		}
 		applyList = append(applyList, applyItem{Src: src, Dst: dst, Target: f.Target})
 	}
 
@@ -122,6 +130,26 @@ func targetRoot(scope string) (string, error) {
 		return filepath.Clean(strings.TrimSpace(string(out))), nil
 	}
 	return os.Getwd()
+}
+
+func safeJoinUnderRoot(root, rel string) (string, error) {
+	baseAbs, err := filepath.Abs(root)
+	if err != nil {
+		return "", err
+	}
+	joined := filepath.Join(baseAbs, filepath.FromSlash(rel))
+	joinedAbs, err := filepath.Abs(joined)
+	if err != nil {
+		return "", err
+	}
+	relative, err := filepath.Rel(baseAbs, joinedAbs)
+	if err != nil {
+		return "", err
+	}
+	if relative == ".." || strings.HasPrefix(relative, ".."+string(os.PathSeparator)) {
+		return "", fmt.Errorf("path escapes target root")
+	}
+	return joinedAbs, nil
 }
 
 func existsAndDifferent(src, dst string) bool {
