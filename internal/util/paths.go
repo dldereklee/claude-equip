@@ -10,7 +10,7 @@ func AppDir() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	p := filepath.Join(cfg, "switcheroo")
+	p := filepath.Join(cfg, "agent-equip")
 	if err := os.MkdirAll(p, 0o755); err != nil {
 		return "", err
 	}

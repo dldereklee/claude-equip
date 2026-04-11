@@ -6,9 +6,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/example/switcheroo/internal/gitops"
-	"github.com/example/switcheroo/internal/profile"
-	"github.com/example/switcheroo/internal/store"
+	"github.com/example/agent-equip/internal/gitops"
+	"github.com/example/agent-equip/internal/profile"
+	"github.com/example/agent-equip/internal/store"
 )
 
 func ImportRepo(url string) error {

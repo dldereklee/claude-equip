@@ -1,6 +1,6 @@
-# switcheroo
+# agent-equip
 
-`switcheroo` is a lightweight Go CLI for switching Claude Code and Codex configuration profiles.
+`agent-equip` is a lightweight Go CLI for switching Claude Code and Codex configuration profiles.
 
 ## Current features (MVP)
 
@@ -57,9 +57,9 @@ profiles/
 ## Commands
 
 ```bash
-switcheroo import <git-url>
-switcheroo list
-switcheroo use [--scope local|global] [--force] <profile-id>
+agent-equip import <git-url>
+agent-equip list
+agent-equip use [--scope local|global] [--force] <profile-id>
 ```
 
-Run `switcheroo` with no arguments to open interactive mode.
+Run `agent-equip` with no arguments to open interactive mode.

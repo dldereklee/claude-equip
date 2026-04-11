@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/example/switcheroo/internal/ui"
+	"github.com/example/agent-equip/internal/ui"
 )
 
 func RunInteractive() error {
 	for {
-		fmt.Println("\nswitcheroo interactive")
+		fmt.Println("\nagent-equip interactive")
 		fmt.Println("  1) import repo")
 		fmt.Println("  2) list profiles")
 		fmt.Println("  3) use profile")
