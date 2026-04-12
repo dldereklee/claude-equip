@@ -63,3 +63,58 @@ agent-equip use [--scope local|global] [--force] <profile-id>
 ```
 
 Run `agent-equip` with no arguments to open interactive mode.
+
+## Install (3 options)
+
+### Option 1 (Best): One-line installer script (recommended)
+
+This is the easiest path for most users on macOS/Linux:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/<OWNER>/<REPO>/main/scripts/install.sh | bash
+```
+
+Notes:
+- By default it installs to `/usr/local/bin`.
+- You can override defaults:
+
+```bash
+AGENT_EQUIP_REPO=<OWNER>/<REPO> AGENT_EQUIP_INSTALL_DIR="$HOME/.local/bin" bash scripts/install.sh
+```
+
+### Option 2: Download a prebuilt binary from GitHub Releases
+
+1. Open Releases and download the artifact for your OS/arch:
+   - `agent-equip_<version>_linux_amd64.tar.gz`
+   - `agent-equip_<version>_darwin_arm64.tar.gz`
+   - `agent-equip_<version>_windows_amd64.zip`
+2. Extract and move `agent-equip` (or `agent-equip.exe`) into your PATH.
+
+### Option 3: Build/install from source (Go toolchain required)
+
+```bash
+go install github.com/example/agent-equip@latest
+```
+
+### Why Option 1 is best
+
+Option 1 has the best balance of:
+- zero Go/toolchain setup,
+- very fast install,
+- consistent install experience across machines.
+
+## CI/CD release flow
+
+- CI (`.github/workflows/ci.yml`): runs `go test ./...` on PRs and pushes to `main`.
+- Release (`.github/workflows/release.yml`): on tags like `v1.2.3`, GoReleaser builds binaries for:
+  - macOS (`amd64`, `arm64`)
+  - Linux (`amd64`, `arm64`)
+  - Windows (`amd64`, `arm64`)
+- Artifacts + checksums are published to GitHub Releases automatically.
+
+To publish a new release:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
